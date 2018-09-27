@@ -7,14 +7,22 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit; /* все элементы будут наследовать   box-sizing: border-box; от боди */
 }
 
 html {
-  font-size: 10px;
+  font-size: 62.5%;
+  /* 
+  Если для элемента html установить font-size в процентах, то процент берется от шрифта браузера по умолчанию.
+  Браузеры по умолчанию ставят шрифт равным 16px, а нам нужен 10px, поэтому 62.5% от 16px это как раз 10px.
+  Можно сразу жестко задать 10px, но тогда те пользователи,
+  которые в настройках своих браузеров увеличили шрифт по умолчанию, не увидят эффекта увелечения шрифта,
+  если мы жестко его перезапишем в 10px */
 }
 
 body {
@@ -24,6 +32,7 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 3rem;
+  box-sizing: border-box;
 }
 
 .header {
@@ -78,7 +87,7 @@ body {
   display: block;
   font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 1.75rem;
+  letter-spacing: 1.74rem;
 
   animation: moveInRight 1s ease-out;
 }
@@ -142,6 +151,7 @@ And so it's everything that we need actually to make all these cool animations t
   border-radius: 10rem;
   transition: all .2s;
   position: relative;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
