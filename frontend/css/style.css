@@ -53,6 +53,8 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  backface-visibility: hidden; /* чтобы убрать лишнею дрож элемента во временя анимации в некоторых браузерах */
 }
 
 .heading-primary-main {
@@ -60,10 +62,55 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
+
 .heading-primary-sub {
   display: block;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  animation: moveInRight 1s ease-out;
+}
+
+/* Now for the browser performance, it's best to only ever animate two different properties.
+One is opacity, which is the one that we're using here, and the other one is the transform property.
+That's what the browsers are optimized for, for these two properties.
+But with transform, we can do a whole lot.
+And so it's everything that we need actually to make all these cool animations that you can imagine. */
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translate(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translate(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
