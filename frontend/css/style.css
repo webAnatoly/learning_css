@@ -45,10 +45,9 @@ body {
 /* выравнивание по центру c помощью абсолютного позиционирования и смещения блока на 50% с помощью transfom */
 .text-box {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid red;
 }
 
 .heading-primary {
