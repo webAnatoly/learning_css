@@ -10,7 +10,9 @@ Dark green: #28b485
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: inherit; /* все элементы будут наследовать   box-sizing: border-box; от боди */
+  box-sizing: inherit;
+  /* все элементы (включая псевдо элементы всех элементов ::before и ::after)
+  будут наследовать свойство box-sizing: border-box; от body */
 }
 
 html {
@@ -53,7 +55,7 @@ body {
   height: 3.5rem;
 }
 
-/* выравнивание по центру c помощью абсолютного позиционирования и смещения блока на 50% с помощью transfom */
+/* выравнивание по центру c помощью абсолютного позиционирования и смещения блока на 50% с помощью transform */
 .text-box {
   position: absolute;
   top: 40%;
@@ -66,7 +68,7 @@ body {
   color: #fff;
   text-transform: uppercase;
 
-  backface-visibility: hidden; /* чтобы убрать лишнею дрож элемента во временя анимации в некоторых браузерах */
+  backface-visibility: hidden; /* чтобы убрать лишнею дрожь элемента во временя анимации в некоторых браузерах */
   margin-bottom: 6rem;
 }
 
@@ -140,6 +142,8 @@ And so it's everything that we need actually to make all these cool animations t
   }
 }
 
+/* Можно отдельное правило для класса .btn не задавать, а сразу задавать стили классу с его псевдоклассами?
+Видимо, да. Это хорошо, потому-что лаконично. */
 .btn:link,
 .btn:visited {
   text-transform: uppercase;
