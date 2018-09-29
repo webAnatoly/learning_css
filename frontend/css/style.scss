@@ -1,9 +1,8 @@
-/*
-COLORS:
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-*/
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-grey-dark: #777;
 
 *,
 *::after,
@@ -30,14 +29,14 @@ body {
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7;
-  color: #777;
+  color: $color-grey-dark;
   padding: 3rem;
   box-sizing: border-box;
 }
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url('../img/hero.jpg');
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url('../img/hero.jpg');
   background-size: cover;
   background-position: top;
   position: relative;
@@ -169,7 +168,7 @@ And so it's everything that we need actually to make all these cool animations t
 
 .btn--white {
   background-color: #fff;
-  color: #777;
+  color: $color-grey-dark;
 }
 
 .btn::after {
@@ -198,5 +197,3 @@ And so it's everything that we need actually to make all these cool animations t
   animation: moveInButton .5s ease-out .75s;
   animation-fill-mode: backwards; /* backwards применяет стили из 0% @moveInButton. И конкретно здесь позволяет кнопке не появляться раньше времени */
 }
-
-@import 'nav';
