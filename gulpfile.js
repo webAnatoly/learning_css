@@ -26,7 +26,7 @@ gulp.task('styles', () => {
     ];
   }
   return multipipe(
-      gulp.src('frontend/css/style.scss'),
+      gulp.src('frontend/css/main.scss'),
       gulpIf(isDevelopment, sourcemaps.init()),
       sass(),
       postcss(plugins),

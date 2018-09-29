@@ -1,0 +1,49 @@
+/* For the browser performance, it's best to only ever animate two different properties.
+One is opacity, which is the one that we're using here, and the other one is the transform property.
+That's what the browsers are optimized for, for these two properties.
+But with transform, we can do a whole lot.
+And so it's everything that we need actually to make all these cool animations that you can imagine. */
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translate(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translate(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
