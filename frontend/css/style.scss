@@ -198,3 +198,5 @@ And so it's everything that we need actually to make all these cool animations t
   animation: moveInButton .5s ease-out .75s;
   animation-fill-mode: backwards; /* backwards применяет стили из 0% @moveInButton. И конкретно здесь позволяет кнопке не появляться раньше времени */
 }
+
+@import 'nav';
