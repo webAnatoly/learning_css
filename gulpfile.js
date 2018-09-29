@@ -16,12 +16,17 @@ const gulp = require('gulp'),
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development'; // NODE_ENV=production gulp build
 
 gulp.task('styles', () => {
-  const plugins = [
-    autoprefixer({browsers: ['last 5 version']}),
-    cssnano,
-  ];
+  let plugins;
+  if (isDevelopment) {
+    plugins = [autoprefixer({ browsers: ['last 5 version'] })];
+  } else {
+    plugins = [
+      autoprefixer({ browsers: ['last 5 version'] }),
+      cssnano,
+    ];
+  }
   return multipipe(
-      gulp.src('frontend/css/style.css'),
+      gulp.src('frontend/css/style.scss'),
       gulpIf(isDevelopment, sourcemaps.init()),
       sass(),
       postcss(plugins),
