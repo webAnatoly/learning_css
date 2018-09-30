@@ -35,3 +35,23 @@ body {
     animation: moveInRight 1s ease-out;
   }
 }
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px; // в пикселях, а не в .rem потому-что 2пикселя маленькая величина и переводить её в rem смысла нет ибо эффект заметен не будет
+  
+  // градиент фона для самого текста заголовка
+  display: inline-block;
+  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+  background-clip: text;
+  color: transparent;
+  
+  transition: all .2s;
+
+  &:hover {
+    transform: skewY(2deg) skew(15deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+  }
+}
