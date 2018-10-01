@@ -9,7 +9,7 @@
     border-radius: 10rem;
     transition: all .2s;
     position: relative;
-    font-size: 1.6rem;
+    font-size: $default-font-size;
   }
 
   &:hover {
@@ -54,5 +54,34 @@
   &--animated {
     animation: moveInButton .5s ease-out .75s;
     animation-fill-mode: backwards; /* backwards применяет стили из 0% @moveInButton. И конкретно здесь позволяет кнопке не появляться раньше времени */
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+    /* 3px, and again three pixels like this and one pixel is so small that it's not really going to change sizes if the user decides to change the base font size.
+    So if everything on the page scales up, one pixel will still be one pixel because in order to become two pixels,
+    the user would have to change the base font size from 16 to 32, so to double it, and that's a bit extreme, so I mean no one is going to do that.
+    The same applies here to this padding, so if it's a really small unit, we can just leave it like that. */
+    transition: all .2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+    transform: translateY(0);
   }
 }
