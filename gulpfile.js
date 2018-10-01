@@ -26,7 +26,7 @@ gulp.task('styles', () => {
     ];
   }
   return multipipe(
-      gulp.src('frontend/css/main.scss'),
+      gulp.src('frontend/scss/main.scss'),
       gulpIf(isDevelopment, sourcemaps.init()),
       sass(),
       postcss(plugins),
@@ -49,9 +49,14 @@ gulp.task('html', () => {
     .pipe(gulp.dest('public'));
 })
 
+gulp.task('icon-font', () => {
+  return gulp.src('frontend/icon_font/**/*.*', { since: gulp.lastRun('icon-font') })
+    .pipe(gulp.dest('public/css'));
+})
+
 gulp.task('build', gulp.series(
   'clean',
-  gulp.parallel('styles', 'assets', 'html'))
+  gulp.parallel('styles', 'assets', 'icon-font', 'html'))
 );
 
 gulp.task('watch', () => {

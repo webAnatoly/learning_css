@@ -33,7 +33,7 @@
   }
 
   &:hover &__photo:not(:hover) { // select all others img except hovered one. Note hover under parent div here.
-    // transform: scale(.95);
+    transform: scale(.95);
   }
   // composition:hover composition__photo:not(:hover)
   /* Оказывается hover срабатывает даже если мы водим над дочерним элементом, даже если этот дочерний элемент смещен за пределы родительского. 
