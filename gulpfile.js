@@ -60,7 +60,7 @@ gulp.task('build', gulp.series(
 );
 
 gulp.task('watch', () => {
-  gulp.watch('frontend/css/**/*.*', gulp.series('styles'));
+  gulp.watch('frontend/scss/**/*.*', gulp.series('styles'));
   gulp.watch('frontend/img/**/*.*', gulp.series('assets'));
   gulp.watch('frontend/**/*.html', gulp.series('html'));
 });
