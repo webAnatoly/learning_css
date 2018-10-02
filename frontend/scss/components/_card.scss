@@ -1,0 +1,40 @@
+.card {
+  perspective: 150rem; // свойство perspective определяется на родителе, чтобы можно было при вращении дочернего элемента использовать "обратную сторону" дочернего элемента
+  position: relative;
+  height: 50rem; // когда дочерним элементам задается position:absolute, то высота родительского элемента коллапсирует, поэтому задаем явно высоту и родителю
+
+  &__side {
+    font-size: 2rem;
+    height: 50rem;
+    width: 100%;
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; // спрятать обратную сторону элемента во время анимации
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+      &-1 {
+        background: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark);
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+}
