@@ -1,7 +1,7 @@
 .card {
-  perspective: 150rem; // свойство perspective определяется на родителе, чтобы можно было при вращении дочернего элемента использовать "обратную сторону" дочернего элемента
+  perspective: 150rem; // свойство perspective определяется на родителе. Теперь при вращении дочерних карточек, будет эффект удаления дальнего края по законам перспективы.
   position: relative;
-  height: 50rem; // когда дочерним элементам задается position:absolute, то высота родительского элемента коллапсирует, поэтому задаем явно высоту и родителю
+  height: 50rem; // когда дочерним элементам задается position:absolute, то высота родительского элемента коллапсирует, поэтому задаем явно высоту и родителю.
 
   &__side {
     font-size: 2rem;
@@ -31,10 +31,32 @@
   }
 
   &:hover &__side--front {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
   }
 
   &:hover &__side--back {
     transform: rotateY(0deg);
+  }
+
+  // FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen; // Смешивает фоновую картинку и фоновый градиент. Не работает в IE и Edge
+
+    &--1 {
+      background-image: url(./../img/nat-5.jpg), linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark);
+    }
+    
+    &--2 {
+      background-image: url(./../img/nat-5.jpg);
+    }
+    
+    &--3 {
+      background-image: url(./../img/nat-5.jpg);
+    }
   }
 }
