@@ -1,11 +1,10 @@
 .card {
   perspective: 150rem; // свойство perspective определяется на родителе. Теперь при вращении дочерних карточек, будет эффект удаления дальнего края по законам перспективы.
   position: relative;
-  height: 50rem; // когда дочерним элементам задается position:absolute, то высота родительского элемента коллапсирует, поэтому задаем явно высоту и родителю.
+  height: 52rem; // когда дочерним элементам задается position:absolute, то высота родительского элемента коллапсирует, поэтому задаем явно высоту и родителю.
 
   &__side {
-    font-size: 2rem;
-    height: 50rem;
+    height: 52rem;
     width: 100%;
     transition: all .8s ease;
     position: absolute;
@@ -13,6 +12,7 @@
     left: 0;
     backface-visibility: hidden; // спрятать обратную сторону элемента во время анимации
     border-radius: 3px;
+    overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
     &--front {
@@ -26,6 +26,20 @@
           to right bottom,
           $color-secondary-light,
           $color-secondary-dark);
+      }
+
+      &-2 {
+        background: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark);
+      }
+
+      &-3 {
+        background: linear-gradient(
+          to right bottom,
+          $color-tertiary-light,
+          $color-tertiary-dark);
       }
     }
   }
@@ -43,20 +57,98 @@
     background-size: cover;
     height: 23rem;
     background-blend-mode: screen; // Смешивает фоновую картинку и фоновый градиент. Не работает в IE и Edge
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 
     &--1 {
-      background-image: url(./../img/nat-5.jpg), linear-gradient(
-          to right bottom,
-          $color-secondary-light,
-          $color-secondary-dark);
+      // в IE будет показана просто картинка, потому что она идет первой в url()
+      background-image: url(../img/nat-5.jpg), linear-gradient(
+        to right bottom,
+        $color-secondary-light,
+        $color-secondary-dark);
     }
     
     &--2 {
-      background-image: url(./../img/nat-5.jpg);
+      background-image: url(../img/nat-6.jpg), linear-gradient(
+        to right bottom,
+        $color-primary-light,
+        $color-primary-light);
     }
     
     &--3 {
-      background-image: url(./../img/nat-5.jpg);
+      background-image: url(../img/nat-7.jpg), linear-gradient(
+        to right bottom,
+        $color-tertiary-light,
+        $color-tertiary-dark);
     }
+  }
+
+  &__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: $color-white;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+  }
+
+  &__heading-span {
+    padding: 1rem 1.5rem;
+    box-decoration-break: clone; // при переносе строки, каждую строку интерпретирует как отдельный блок, соответственно паддинги будут на каждом таком "блоке".
+
+    &--gradient-1 {
+      background-image: linear-gradient(to right bottom,
+        rgba($color-secondary-light, .85),
+        rgba($color-secondary-dark, .85));
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-grey-light-2;
+        }
+      }
+    }
+  }
+
+  // BACK SIDE STYLING
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+
+  &__price-box {
+    color: $color-white;
+    margin-bottom: 8rem;
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
   }
 }
