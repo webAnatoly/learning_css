@@ -1,0 +1,19 @@
+/* Видео фоном. Не забыть в разметке задать autoplay muted loop
+<video class="bg-video__content" autoplay muted loop>
+*/
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .15;
+  overflow: hidden; // на всякий случай, чтобы видео не выходило за пределы элемента
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; // заполнить всю родительского элемента по ширине и высоте
+  }
+}
