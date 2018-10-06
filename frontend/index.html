@@ -364,14 +364,10 @@
       -->
     <script>
       /*
-      Временный скрипт для отмена действия по умолчанию при нажатии на кнопки. 
-      Добавил этот скрипт сюда, просто для того, чтобы страница не перезагружалась во время нажатия на кнопки
-      в процессе верстки.
+      Временный скрипт для отмена действия по умолчанию при нажатии на кнопки и ссылки с href="#". 
+      Добавил этот скрипт сюда, просто для того, чтобы страница, в процессе верстки, не перезагружалась во время нажатия на кнопок и пустых ссылок.
       */
-      const buttons = document.querySelectorAll('[class^="btn"');
-      for (let i = 0; i < buttons.length; i += 1) {
-        buttons[i].addEventListener('click', (event) => event.preventDefault());
-      }
+      document.querySelectorAll('[href^="#"], button').forEach(btn => btn.addEventListener('click', event => event.preventDefault()));
     </script>
   </body>
 </html>
