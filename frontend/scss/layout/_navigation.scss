@@ -25,6 +25,8 @@
     background-image: radial-gradient($color-primary-light, $color-primary-dark);
     z-index: 999; // z-index работает только на тех элементах, которым прописано свойство position. "Applies to:	positioned elements" https://www.w3.org/TR/css-position-3/#propdef-z-index
     transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+    // Шпаргалка функций плавности от злых марсиан https://easings.net/ru.
+    // А это конструктор функций плавности http://cubic-bezier.com/#.17,.67,.93,.47
   }
 
   &__nav {
@@ -82,13 +84,14 @@
     &:active {
       background-position: 100%;
       color: $color-primary;
-      // transform: translateX(1rem);
     }
   }
+
 
   &__checkbox:checked ~ &__background, {
     transform: scale(80);
   }
+
   &__checkbox:checked ~ &__nav, {
     // показать меню навигации
     opacity: 1;
