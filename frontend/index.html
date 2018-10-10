@@ -13,7 +13,6 @@
       <title>Natours | Exciting tours for adventurous people</title>
   </head>
   <body>
-
     <div class="navigation">
       <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
 
@@ -44,7 +43,7 @@
           <span class="heading-primary--main">Outdoors</span>
           <span class="heading-primary--sub">is where life happens</span>
         </h1>
-        <a href="#" class="btn btn--white btn--animated">Discover out tours</a>
+        <a href="#section-tours" class="btn btn--white btn--animated">Discover out tours</a>
       </div>
     </header>
     
@@ -120,7 +119,7 @@
         </div> <!-- row -->
       </section><!-- section-features -->
 
-      <section class="section-tours">
+      <section class="section-tours" id="section-tours">
         <div class="u-center-text u-margin-bottom-big">
           <h2 class="heading-secondary">
             Most popular tours
@@ -151,7 +150,7 @@
                   <div class="card__price-box">
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value u-margin-bottom-big">$297</p>
-                    <a href="#" class="btn btn--white">Book now!</a>
+                    <a href="#popup" class="btn btn--white">Book now!</a>
                   </div>
                 </div>
               </div>
@@ -181,7 +180,7 @@
                   <div class="card__price-box">
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value u-margin-bottom-big">$425</p>
-                    <a href="#" class="btn btn--white">Book now!</a>
+                    <a href="#popup" class="btn btn--white">Book now!</a>
                   </div>
                 </div>
               </div>
@@ -211,7 +210,7 @@
                   <div class="card__price-box">
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value u-margin-bottom-big">$532</p>
-                    <a href="#" class="btn btn--white">Book now!</a>
+                    <a href="#popup" class="btn btn--white">Book now!</a>
                   </div>
                 </div>
               </div>
@@ -346,49 +345,67 @@
         </div>
       </div>
     </footer>
-      <!-- my grid
-      <section>
-        <div class="row">
-          <div class="col-1-of-2">Col 1 of 2</div>
-          <div class="col-1-of-2">Col 1 of 2</div>
-        </div>
 
-        <div class="row">
-          <div class="col-1-of-3">Col 1 of 3</div>
-          <div class="col-1-of-3">Col 1 of 3</div>
-          <div class="col-1-of-3">Col 1 of 3</div>
+    <div class="popup" id="popup">
+      <div class="popup__content">
+        <div class="popup__left">
+          <img src="./img/nat-8.jpg" alt="Tour photo" class="popup__img">
+          <img src="./img/nat-9.jpg" alt="Tour photo" class="popup__img">
         </div>
+        <div class="popup__right">
+          <a href="#section-tours" class="popup__close">&times;</a>
+          <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
+          <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
+          <p class="popup__text">
+            Soluta fugiat similique deserunt, odio minima minus odit debitis asperiores quisquam non dolorum maxime incidunt molestias, nobis cupiditate vitae est excepturi. Unde, nobis. Iure dolor incidunt maiores animi unde minima, facere architecto eum itaque dignissimos adipisci necessitatibus, recusandae provident. Placeat ipsam iste, soluta facere suscipit enim ipsum tenetur! Eveniet sed accusamus dolores labore nisi voluptate repellat! Aperiam nam, commodi, cumque qui tempore laudantium obcaecati totam expedita ex corrupti atque ipsa tempora voluptatibus quam perferendis blanditiis minima iusto suscipit eveniet. Quisquam aperiam nulla cupiditate doloribus ipsam. Eligendi, omnis? Odit nihil vitae esse laboriosam quas nobis reprehenderit doloremque est. Dolorum voluptate quod animi blanditiis mollitia pariatur.
+          </p>
+          <a href="#" class="btn btn--green">Book now</a>
+        </div>
+      </div>
+    </div><!-- popup -->
+    <!-- my grid
+    <section>
+      <div class="row">
+        <div class="col-1-of-2">Col 1 of 2</div>
+        <div class="col-1-of-2">Col 1 of 2</div>
+      </div>
 
-        <div class="row">
-          <div class="col-1-of-3">Col 1 of 3</div>
-          <div class="col-2-of-3">Col 2 of 3</div>
-        </div>
+      <div class="row">
+        <div class="col-1-of-3">Col 1 of 3</div>
+        <div class="col-1-of-3">Col 1 of 3</div>
+        <div class="col-1-of-3">Col 1 of 3</div>
+      </div>
 
-        <div class="row">
-          <div class="col-1-of-4">Col 1 of 4</div>
-          <div class="col-1-of-4">Col 1 of 4</div>
-          <div class="col-1-of-4">Col 1 of 4</div>
-          <div class="col-1-of-4">Col 1 of 4</div>
-        </div>
+      <div class="row">
+        <div class="col-1-of-3">Col 1 of 3</div>
+        <div class="col-2-of-3">Col 2 of 3</div>
+      </div>
 
-        <div class="row">
-          <div class="col-1-of-4">Col 1 of 4</div>
-          <div class="col-1-of-4">Col 1 of 4</div>
-          <div class="col-2-of-4">Col 2 of 4</div>
-        </div>
+      <div class="row">
+        <div class="col-1-of-4">Col 1 of 4</div>
+        <div class="col-1-of-4">Col 1 of 4</div>
+        <div class="col-1-of-4">Col 1 of 4</div>
+        <div class="col-1-of-4">Col 1 of 4</div>
+      </div>
 
-        <div class="row">
-          <div class="col-1-of-4">Col 1 of 4</div>
-          <div class="col-3-of-4">Col 3 of 4</div>
-        </div>
-      </section>
-      -->
+      <div class="row">
+        <div class="col-1-of-4">Col 1 of 4</div>
+        <div class="col-1-of-4">Col 1 of 4</div>
+        <div class="col-2-of-4">Col 2 of 4</div>
+      </div>
+
+      <div class="row">
+        <div class="col-1-of-4">Col 1 of 4</div>
+        <div class="col-3-of-4">Col 3 of 4</div>
+      </div>
+    </section>
+    -->
     <script>
       /*
       Временный скрипт для отмена действия по умолчанию при нажатии на кнопки и ссылки с href="#". 
-      Добавил этот скрипт сюда, просто для того, чтобы страница, в процессе верстки, не перезагружалась во время нажатия на кнопок и пустых ссылок.
+      Добавил этот скрипт сюда, просто для того, чтобы страница, в процессе верстки, не перезагружалась во время нажатия на кнопки и пустые ссылки с href="#".
       */
-      document.querySelectorAll('[href^="#"], button').forEach(btn => btn.addEventListener('click', event => event.preventDefault()));
+      document.querySelectorAll('[href="#"], button').forEach(btn => btn.addEventListener('click', event => event.preventDefault()));
     </script>
   </body>
 </html>
