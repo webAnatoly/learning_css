@@ -31,6 +31,9 @@ $breakpoint argument choices:
 1em = browser default font-size on the body (or html) element by default it usully is 16px, but users can change it.
 That is why we should use em in media queries insted of pixels
 We use "em"s because "em"s will be converted to pixels and will be adopted to the font size that the user set for the browser.
+
+Сейчас буду адаптировать сайт под мобильники и планшеты, вот примерный порядок в котором буду добавлять в стили @media запросы:
+base + typography > general layout + grid > page layout > components
 */
 
 @mixin respond($breakpoint) {
