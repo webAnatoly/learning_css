@@ -102,8 +102,18 @@
 
     &--gradient-1 {
       background-image: linear-gradient(to right bottom,
-        rgba($color-secondary-light, .85),
-        rgba($color-secondary-dark, .85));
+        rgba($color-secondary-light, .75),
+        rgba($color-secondary-dark, .75));
+    }
+    &--gradient-2 {
+      background-image: linear-gradient(to right bottom,
+        rgba($color-primary-light, .75),
+        rgba($color-primary-dark, .75));
+    }
+    &--gradient-3 {
+      background-image: linear-gradient(to right bottom,
+        rgba($color-tertiary-light, .75),
+        rgba($color-tertiary-dark, .75));
     }
   }
 
