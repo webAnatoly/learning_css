@@ -24,11 +24,28 @@
     прописать translate(-50%, -50%). Ну или миксин не использовать а все вместе написать. */
     transform: translate(-50%, -50%) scale(0.3);
     transition: all .5s .2s; // .2s это delay
+
+    @include respond(tab-port) {
+      width: 90%;
+      height: 95%;
+      overflow: auto;
+      display: block;
+    }
+
+    @include respond(phone) {
+      text-align: center;
+    }
   }
 
   &__left {
     width: 33.333333%;
     display: table-cell; // дочерним задаем table-cell
+
+    @include respond(tab-port) {
+      width: 100%;
+      display: block;
+      @include clearfix;
+    }
   }
 
   &__right {
@@ -36,22 +53,45 @@
     display: table-cell; // дочерним задаем table-cell
     vertical-align: middle; // вертикальное выравнивание в ячейке по центру
     padding: 3rem 5rem;
+
+    @include respond(tab-port) {
+      width: 100%;
+      display: block;
+      padding: 3rem;
+    }
+
+    @include respond(phone) {
+      padding: 1rem;
+    }
   }
 
   &__img {
     display: block;
     width: 100%;
+    
+    @include respond(tab-port) {
+      width: 50%;
+      height: 30rem;
+      float: left;
+    }
+    @include respond(phone) {
+      width: 100%;
+    }
   }
 
   &__text {
-    font-size: 1.4rem;
-    margin-bottom: 4rem;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
 
     column-count: 2;
     column-gap: 4rem;
     column-rule: 1px solid $color-grey-light-2;
 
     hyphens: auto; // автопереносы
+
+    @include respond(tab-port) {
+      column-count: 1;
+    }
   }
 
   &:target {
@@ -87,6 +127,23 @@
       outline: none;
       transition: all .2s;
       line-height: 1; // [Длинный коммент] так как в качестве крестика у нас тексты, то надо уменьшить line-height чтобы наш "x" выровнялся по высоте, потомучто для текста line-height браузером ставиться по самому высокому символу алфавита (как-то так, можно погуглить, но идея думаю ясна)
+      z-index: 100;
+
+      @include respond(tab-port) {
+        &::after { // круглый белый фон для кнопки закрытия в респонсивной версии
+          content: "";
+          display: inline-block;
+          width: 3rem;
+          height: 3rem;
+          background-color: $color-white;
+          position: absolute;
+          top: .2rem;
+          left: -.7rem;
+          border-radius: 50%;
+          z-index: -1;
+          box-shadow: 0 1rem 3rem rgba($color-black, .1);
+        }
+      }
     }
 
     &:hover {

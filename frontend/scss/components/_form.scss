@@ -3,6 +3,10 @@
     margin-bottom: 2rem;
   }
 
+  @include respond(phone) {
+    text-align: center;
+  }
+
   &__input {
     font-size: 1.5rem;
     font-family: inherit; // инпут автоматически НЕ наследует шрифты и цвета шрифтов
