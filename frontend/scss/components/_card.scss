@@ -102,8 +102,18 @@
 
     &--gradient-1 {
       background-image: linear-gradient(to right bottom,
-        rgba($color-secondary-light, .85),
-        rgba($color-secondary-dark, .85));
+        rgba($color-secondary-light, .75),
+        rgba($color-secondary-dark, .75));
+    }
+    &--gradient-2 {
+      background-image: linear-gradient(to right bottom,
+        rgba($color-primary-light, .75),
+        rgba($color-primary-dark, .75));
+    }
+    &--gradient-3 {
+      background-image: linear-gradient(to right bottom,
+        rgba($color-tertiary-light, .75),
+        rgba($color-tertiary-dark, .75));
     }
   }
 
@@ -147,5 +157,63 @@
   &__price-value {
     font-size: 6rem;
     font-weight: 100;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  // [RESPONSIVE EDITION] много изменений поэтому @media query вынесен в отдельный кусок
+  @include respond(tab-port) {
+    height: auto; // в респонсивной карточка будет односторонней, поэтому высота auto
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    &__side {
+      height: auto; // в респонсивной карточка будет односторонней, поэтому высота auto
+      width: 100%;
+      position: relative; // в респонсивной версии не нужно что-бы два div блока, служащие сторонами карточки занимали одно и тоже место, поэтому position:relative
+      box-shadow: none;
+
+      &--back {
+        transform: rotateY(0); // в респ. версии крутить карточки не надо
+        clip-path: polygon(0 11%, 100% 0, 100% 100%, 0 100%);
+        border-radius: 0;
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0); // в респ. версии крутить карточки не надо
+    }
+
+    &__details {
+      padding: 1rem 3rem;
+    }
+    
+    // [BACK SIDE to FRONT] it was back side but in responsive edition it must be on the frond side too
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    &__price-value {
+      font-size: 4rem;
+    }
   }
 }

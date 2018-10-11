@@ -13,3 +13,45 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Bid desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = browser default font-size on the body (or html) element by default it usully is 16px, but users can change it.
+That is why we should use em in media queries insted of pixels
+We use "em"s because "em"s will be converted to pixels and will be adopted to the font size that the user set for the browser.
+
+Сейчас буду адаптировать сайт под мобильники и планшеты, вот примерный порядок в котором буду добавлять в стили @media запросы:
+base + typography > general layout + grid > page layout > components
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) { @content }; // 600px / 16px = 37.5.
+    // Дириктива @content и @if это фичи sass
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) { @content }; // 900px / 16 = 56.25em
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) { @content };  // 1200px / 16 = 75em;
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) { @content }; // 1800 / 16 = 112.5
+    // the minimum width at which styles will apply is 1800 pixels
+  }
+}
