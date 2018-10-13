@@ -67,9 +67,43 @@
           </div>
           <div class="col-1-of-2">
             <div class="composition">
-              <img src="img/nat-1-large.jpg" alt="Photo 1" class="composition__photo composition__photo--p1">
-              <img src="img/nat-2-large.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
-              <img src="img/nat-3-large.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+              <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+                   sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                   alt="Photo 1"
+                   class="composition__photo composition__photo--p1"
+                   src="img/nat-1-large.jpg"><!-- src тут в качестве fallback для старых браузеров, которые не пониманию srcset и sizes -->
+              
+              <!--  в атрибуте srcset значения 300w и 1000w это реальная ширина картинок, которые лежат у нас сервере.
+                Эти значения называются "width descriptor". This is the image's real size, which can be found by inspecting the image file on your computer.
+                By using these width descriptors, we basically inform the browser of the width of each of these images without the
+                browser having to download them to get access to that information.
+
+                Прописывая эти значения мы сообщаем браузеру ширину картинок, чтобы он зря сам их не скачивал лишний раз.
+                В итоге он скачает ту картинку, которая проходит по условиям описанным в атрибуте sizes
+                
+                Basically we use sizes to inform the browser about the approximate width of the image at different view port width.
+                And so, with that information, together with the width descriptor here,
+                the browser can then figure out which is the perfect image to use for the current view port width
+                and the current display resolution.
+
+                Ширина, которую мы прописываем в sizes после media выражения означает, что мы как-бы говорим браузеру,
+                какой ширины будет эта картинка в css. 
+                И теперь на основе этих данных браузер выберет наиболее подходящею картинку из тех, что прописаны в srcset
+              
+                Последнее значение в sizes 300px, это значение будует использовано, если предыдущее media запросы вернут false
+              -->
+
+              <img srcset="img/nat-2.jpg 300w, img/nat-2-large.jpg 1000w"
+                   sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                   alt="Photo 2"
+                   class="composition__photo composition__photo--p2"
+                   src="img/nat-2-large.jpg">
+
+              <img srcset="img/nat-3.jpg 300w, img/nat-3-large.jpg 1000w"
+                   sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+                   alt="Photo 3"
+                   class="composition__photo composition__photo--p3"
+                   src="img/nat-3-large.jpg">                   
             </div>
           </div>
         </div>
@@ -298,7 +332,7 @@
                     <input type="radio" class="form__radio-input" id="small" name="size">
                     <label for="small" class="form__radio-label">
                       <span class="form__radio-button"></span>
-                      <p>Small tour group</p>
+                      <span>Small tour group</span>
                     </label>
                   </div>
 
@@ -306,7 +340,7 @@
                     <input type="radio" class="form__radio-input" id="large" name="size">
                     <label for="large" class="form__radio-label">
                       <span class="form__radio-button"></span>
-                      <p>Large tour group</p>
+                      <span>Large tour group</span>
                     </label>
                   </div>
                 </div><!-- form_group -->
@@ -323,7 +357,14 @@
 
     <footer class="footer">
       <div class="footer__logo-box">
-        <img src="./img/logo-green-2x.png" alt="Full logo" class="footer__logo">
+
+        <picture class="footer__logo">
+          <!-- должен быть как минимум один source, а img идет как fallback, если <source> пустой, недоступен или условие в media query не проходит -->
+          <source srcset="./img/logo-green-small-1x.png 1x, ./img/logo-green-small-2x.png 2x" media="(max-width: 37.5em)"><!-- Если условие media проходит, то сработает тег <source>, иначе сработает тег <img> -->
+          <img srcset="./img/logo-green-1x.png 1x, ./img/logo-green-2x.png 2x" alt="Full logo" src="./img/logo-green-2x.png"><!-- Внутри тега img, если используем srcset, то в качетве fallback желательно прописать атрибут src (это нужно для старых браузеров не поддерживающих srcset. Например IE11 и опера-мини srcset не поддерживают) -->
+        </picture>
+
+        
       </div>
       <div class="row">
         <div class="col-1-of-2">
