@@ -26,9 +26,10 @@
     float: left;
     overflow: hidden;
     border-radius: 50%;
-    @supports (clip-path: circle()) { // [TO DO] обернуть все clip-path в @supports
+    @supports (clip-path: circle()) { // [TO DO] обернуть все clip-path в @supports и вообще для сомнительных свойств реализовать подход graceful degradation
       clip-path: circle(50% at 50% 50%);
       shape-outside: circle(50% at 50% 50%);
+      border-radius: none;
     }
     transform: translateX(-3rem) skewX(12deg);
     position: relative;
