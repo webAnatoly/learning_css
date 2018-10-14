@@ -7,11 +7,18 @@
 
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
-  @media(-webkit-min-device-pixel-ratio: 2) {
-    & {
-      background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url('../img/hero.jpg');
-    }
-  }
+  // Для экранов с высоким разрешением и шириной больше 600px подгружаем большую картинку. 
+  // Для экранов c низким разрешением, но шириной больше 2000px тоже подгружаем большую картинку.
+  // Запятая в @media условии имеет значение логического OR
+
+  @media(min-resolution: 192dpi) and (min-width: 37.5em), // 600px / 16px = 37.5
+        (-webkit-min-device-pixel-ratio: 2)  and (min-width: 37.5em), // для Safari
+        (min-width: 125em) { // 2000px / 16px = 125
+          & {
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url('../img/hero.jpg');
+          }
+        }
+  //[TO DO] для всех картинок по всему сайту сделать респонсивную загрузку. Для больших дисплеев большие, для маленьких маленькие.
 
   @include respond(phone) {
     clip-path: polygon(0 0, 100% 0, 100% 87vh, 0 100%);
