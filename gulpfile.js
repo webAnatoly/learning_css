@@ -50,8 +50,8 @@ gulp.task('html', () => {
 })
 
 gulp.task('icon-font', () => {
-  return gulp.src('frontend/icon_font/**/*.*', { since: gulp.lastRun('icon-font') })
-    .pipe(gulp.dest('public/css'));
+  return gulp.src('frontend/icon_font/fonts/**/*.*', { since: gulp.lastRun('icon-font') })
+    .pipe(gulp.dest('public/css/fonts'));
 })
 
 gulp.task('build', gulp.series(
