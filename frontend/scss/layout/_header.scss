@@ -11,9 +11,9 @@
   // Для экранов c низким разрешением, но шириной больше 2000px тоже подгружаем большую картинку.
   // Запятая в @media условии имеет значение логического OR
 
-  @media(min-resolution: 192dpi) and (min-width: 37.5em), // 600px / 16px = 37.5
-        (-webkit-min-device-pixel-ratio: 2)  and (min-width: 37.5em), // для Safari
-        (min-width: 125em) { // 2000px / 16px = 125
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em), // 600px / 16px = 37.5
+         only screen and (-webkit-min-device-pixel-ratio: 2)  and (min-width: 37.5em), // для Safari
+         only screen and (min-width: 125em) { // 2000px / 16px = 125
           & {
             background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url('../img/hero.jpg');
           }
