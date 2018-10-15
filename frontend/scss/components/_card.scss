@@ -170,8 +170,9 @@
 
 
   // [RESPONSIVE EDITION] много изменений поэтому @media query вынесен в отдельный кусок
-  @include respond(tab-port) {
-    height: auto; // в респонсивной карточка будет односторонней, поэтому высота auto
+  @media only screen and (max-width: 56.25em),
+         only screen and (hover: none) { // hover: none это идентификация touch девайсов, на которых hover не работает (планшеты и мобильники)
+    height: auto; // в респонсивной версии карточка будет односторонней, поэтому высота auto
     border-radius: 3px;
     overflow: hidden;
     background-color: $color-white;
